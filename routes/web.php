@@ -11,6 +11,7 @@ use App\Http\Controllers\ProductListController;
 use App\Http\Controllers\TransactionAccepController;
 use App\Http\Controllers\UploadFileContrroller;
 use App\Http\Controllers\ViewProductme;
+use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\ViewProduct;
 use Illuminate\Support\Facades\Route;
 
@@ -25,9 +26,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [PenggunaController::class, 'index']);
 
 // auth roth for both
 Route::group(['middleware' => ['auth']], function () {
@@ -57,4 +60,6 @@ Route::group(['middleware' => ['auth', 'role:user']], function () {
     Route::resource('historyuser', HistoryUserController::class);
 });
 
+
 require __DIR__ . '/auth.php';
+

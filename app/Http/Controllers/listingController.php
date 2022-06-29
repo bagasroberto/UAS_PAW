@@ -92,7 +92,7 @@ class listingController extends Controller
             'status' => 'list',
         ]);
 
-        return redirect('viewproductlist');
+        return redirect('productlist');
     }
 
     /**
